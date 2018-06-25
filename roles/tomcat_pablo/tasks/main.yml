@@ -1,7 +1,7 @@
 ---
 # tasks file for tomcat_pablo
 
-- name: Ensure Java directory exists
+- name: Ensure Java's directory exists
   file:
           path: "{{ java_directory }}"
           state: directory
@@ -11,3 +11,19 @@
           creates: "{{ java_directory }}/{{ jdk_version }}/"
           src: ../files/java.tar.gz
           dest: "{{ java_directory }}"
+
+- name: Remove Java's installation file
+  file:
+          path: "{{ java_directory }}/java.tar.gz"
+          state: absent
+
+- name: Ensure Tomcat's directory exists
+  file:
+          path: "{{ tomcat_directory }}"
+          state: directory
+
+- name: Install Apache Tomcat
+  unarchive:
+          creates: "{{ tomcat_directory }}/{{ tomcat_version }}/"
+          src: "../files/apache-tomcat.tar.gz"
+          dest: "{{ tomcat_directory }}"
