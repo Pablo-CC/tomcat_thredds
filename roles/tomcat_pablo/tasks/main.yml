@@ -27,3 +27,16 @@
           creates: "{{ tomcat_directory }}/{{ tomcat_version }}/"
           src: "../files/apache-tomcat.tar.gz"
           dest: "{{ tomcat_directory }}"
+
+- name: Copy setenv.sh for Tomcat with environment variables
+  template:
+          src: setenv.sh.j2 
+          dest: "{{ tomcat_directory }}/{{ tomcat_version }}/bin/setenv.sh"
+          
+- name: Copy TDS WAR file
+  copy: 
+          src: ../files/thredds.war
+          dest: "{{ tomcat_directory }}/{{tomcat_version }}/webapps/"
+
+- name: Startup server
+  command: "{{ tomcat_directory }}/{{ tomcat_version }}/bin/startup.sh"
