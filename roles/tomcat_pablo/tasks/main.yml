@@ -1,0 +1,13 @@
+---
+# tasks file for tomcat_pablo
+
+- name: Ensure Java directory exists
+  file:
+          path: "{{ java_directory }}"
+          state: directory
+
+- name: Install Java8
+  unarchive:
+          creates: "{{ java_directory }}/{{ jdk_version }}/"
+          src: ../files/java.tar.gz
+          dest: "{{ java_directory }}"
