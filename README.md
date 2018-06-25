@@ -3,9 +3,9 @@ With this repository you will be able to build a virtual environment consisting 
 
 
 ## Important!! ##
-In order for this repository to work, you must download some files that have not been included in it.   
+In order for this repository to work, you must download some files that have not been included in it.   \
 
-It is crucial to notice where you put them as well as how you name them.  
+It is crucial to notice where you put them as well as how you name them.  \
 
 **Be sure** to download these files in `roles/tomcat_pablo/files/` directory and name them correctly by running these commands:  
 ~~~
@@ -15,7 +15,7 @@ wget -O apache-tomcat.tar.gz http://ftp.cixug.es/apache/tomcat/tomcat-8/v8.5.31/
 wget -O thredds.war http://artifacts.unidata.ucar.edu/content/repositories/unidata-releases/edu/ucar/tds/4.6.11/tds-4.6.11.war
 ~~~
 
-_NOTE: Download URL might have changed_  
+_NOTE: Download URL might have changed_  \
 
 _NOTE2: At least Java8 is required_  
 
@@ -30,11 +30,11 @@ In the file _Vagrantfile_ you will find everything Vagrant needs to build the th
 
 ### Ansible ###
 Ansible takes care of the authomatization of the deployment process by means of these files:
-_inventory_: defines the hosts and tells Ansible how to access them.  
+_inventory_: defines the hosts and tells Ansible how to access them.  \
 
-_ansible.cfg_: defines default configuration parameters.  
+_ansible.cfg_: defines default configuration parameters.  \
 
-_playbook.yml_: defines the tasks to be performed; it uses the roles you will find in the _roles/_ directory: **haproxy_pablo** and **tomcat_pablo**  
+_playbook.yml_: defines the tasks to be performed; it uses the roles you will find in the _roles/_ directory: **haproxy_pablo** and **tomcat_pablo**  \
 
 #### haproxy_pablo ####
 Installs HAProxy on the load balancer and copies the configuration file before starting the service.
