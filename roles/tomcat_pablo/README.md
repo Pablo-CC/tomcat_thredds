@@ -30,7 +30,7 @@ Including an example of how to use your role (for instance, with variables passe
          - role: tomcat_pablo
 Important notes
 -------
-
+* In order to run the `startup.sh` script correctly the `nohup` command must be added to ignore the HUP (*hang up*) signal. The built-in Tomcat management scripts like `startup.sh` don't detach from the tty, so the process would be killed when Ansible is finished.
 
 BSD
 
