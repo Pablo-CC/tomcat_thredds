@@ -39,4 +39,11 @@
           dest: "{{ tomcat_directory }}/{{tomcat_version }}/webapps/"
 
 - name: Startup server
-  command: "{{ tomcat_directory }}/{{ tomcat_version }}/bin/startup.sh"
+  command: "nohup {{ tomcat_directory }}/{{ tomcat_version }}/bin/startup.sh"
+  register: comm_out
+
+- debug:
+        msg: "{{ comm_out.stdout }}"
+- debug:
+        msg: "{{ comm_out.stderr }}"
+  
