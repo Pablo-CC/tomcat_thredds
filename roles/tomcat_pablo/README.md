@@ -1,34 +1,36 @@
-Role Name
+tomcat_pablo
 =========
 
-A brief description of the role goes here.
+Deploys a Tomcat server running the application THREDDS, after installin Java, which is required for the application.
+
 
 Requirements
 ------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+No requirements.
 
 Role Variables
 --------------
+All variables in this role are defined in `defaults/main.yml`.
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
+* java_directory -> Directory where Java will be installed on the remote server.
+* jdk_version -> This variable stands for the final folder where all Java files will be, and has the name of the version of the Java Development Kit (ex:jdk1.8.0_171)
+* tomcat_directory -> Directory where Tomcat will be installed on the remote server.
+* tomcat_version -> This variable stands for the final folder where all Tomcat files will be, and has the name of the installed version (ex:apache-tomcat-8.5.31)  
 Dependencies
 ------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
+No dependencies  
 Example Playbook
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
     - hosts: servers
+      become: True
       roles:
-         - { role: username.rolename, x: 42 }
-
-License
+         - role: tomcat_pablo
+Important notes
 -------
+
 
 BSD
 
