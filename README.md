@@ -29,7 +29,7 @@ _NOTE2: At least Java8 is required_
 In the file _Vagrantfile_ you will find everything Vagrant needs to build the three Virtual Machines (VMs). Port forwarding has been configured between you local machine and the load-balancer (both of them ports 8080) so you can access the servers from your local machine (through _localhost:8080_).
 
 ### Ansible ###
-Ansible takes care of the authomatization of the deployment process by means of these files:
+Ansible takes care of the authomatization of the deployment process by means of these files:  
 _inventory_: defines the hosts and tells Ansible how to access them.  
 
 _ansible.cfg_: defines default configuration parameters.  
