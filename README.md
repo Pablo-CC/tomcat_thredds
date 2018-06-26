@@ -43,7 +43,9 @@ Installs HAProxy on the load balancer and copies the configuration file before s
 Installs Java, Tomcat and the THREDDS application in their correspondent directories and starts the server application in both _server1_ and _server2_.
 
 ## Links ##
-
+* [HAProxy Starter Guide] (http://cbonte.github.io/haproxy-dconv/1.8/intro.html)
+* [HAProxy Config Manual ] (http://cbonte.github.io/haproxy-dconv/1.8/configuration.html)
+* [THREDDS Tutorial ] (https://www.unidata.ucar.edu/software/thredds/current/tds/tutorial/index.html)
 
 ## Test ##
 Run the following commands in order to deploy the virtual environment and run the servers and the load balancer.
