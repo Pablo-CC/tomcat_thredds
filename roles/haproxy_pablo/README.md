@@ -1,38 +1,34 @@
-Role Name
+haproxy_pablo
 =========
 
-A brief description of the role goes here.
+Installs HAProxy on the remote host, copies the configuration file and runs it.
 
 Requirements
 ------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+No requirements
 
 Role Variables
 --------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
+All variables used in this role are defined in *default/main.yml*.  
+* haproxy_user -> Value of the `user` parameter passed to the `global` section of HAProxy's configuration file. User that will run the service.
+* haproxy_group -> Value of the `group` parameter passed to the global section of HAProxy's configuration file. Group the user belongs to.
+* haproxy_mode -> Value of the `mode` parameter passed to the `listen`section of HAProxy's configuration file. Mode HAProxy will work on (can be *http* or *tcp*)
+* haproxy_mode -> Value of the `chroot` parameter passed to the `global` section of HAProxy's configuration file. Equivalent to `chroot` that will be executed by the user before dropping privileges.
+* haproxy_bind_address and haproxy_bind_port -> Bind parameters passed to the `listen`section. IP address ('\*' stands for all interfaces in the host) and port the load balancer will be listening on.
+* haproxy_balance_mode -> Balance algorithm the load balancer will execute.
+* haproxy_servers -> Array of servers that will be located in the backend, each of them defined by its listening socket (IP address + port)
 Dependencies
 ------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+No dependencies
 
 Example Playbook
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
+~~~
+    - hosts: load-balancer
+      gather_facts: False
+      become: True
       roles:
-         - { role: username.rolename, x: 42 }
-
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+         - role: haproxy_pablo
+~~~
